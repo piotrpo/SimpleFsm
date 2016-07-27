@@ -1,0 +1,32 @@
+group 'SimpleFsm'
+version '0.1-SNAPSHOT'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
+
+apply plugin: 'java-library-distribution'
+//apply plugin: 'bintray-release'
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+//publish {
+//    userOrg = 'digita'
+//    groupId = 'pl.com.digita.simplefsm'
+//    artifactId = 'simplefsm'
+//    publishVersion = '0.0.1'
+//    desc = ''
+//    website = ''
+//}
