@@ -3,13 +3,13 @@ package pl.com.digita.simplefsm;
 
 /**
  * Created by piotr on 27.07.2016.
- * Default implementation of TaskListener simplifies syntax of FSM definition
+ * Default implementation of StateListener simplifies syntax of FSM definition
  */
-public class DefaultTaskListener<S, E, C> implements TaskListener<S, E, C>
+public class DefaultStateListener<S, E, C> implements StateListener<S, E, C>
 {
     S boundState;
 
-    public DefaultTaskListener(S boundState)
+    public DefaultStateListener(S boundState)
     {
         this.boundState = boundState;
     }

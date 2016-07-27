@@ -4,7 +4,7 @@ package pl.com.digita.simplefsm;
  * Created by piotr on 27.07.2016.
  * Interface for listening to tasks
  */
-public interface TaskListener<S, E, C>
+public interface StateListener<S, E, C>
 {
     /**
      * Method called before exiting bound state

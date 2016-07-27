@@ -10,7 +10,7 @@ import java.util.List;
 public class StateMachine<S extends Enum, E extends Enum, C extends StateMachine.StatefulContext<S>>
 {
     private List<Transition<S, E>> transitions = new ArrayList<>();
-    private List<TaskListener<S, E, C>> taskListeners = new ArrayList<>();
+    private List<StateListener<S, E, C>> stateListeners = new ArrayList<>();
     private C context;
 
     public C getContext()
@@ -42,9 +42,9 @@ public class StateMachine<S extends Enum, E extends Enum, C extends StateMachine
         return this;
     }
 
-    public void addTaskListener(TaskListener<S, E, C> listener)
+    public void addStateListener(StateListener<S, E, C> listener)
     {
-        taskListeners.add(listener);
+        stateListeners.add(listener);
     }
 
     public void onEvent(E event)
@@ -67,30 +67,30 @@ public class StateMachine<S extends Enum, E extends Enum, C extends StateMachine
      */
     private void executeTransition(Transition<S, E> transition)
     {
-        for (TaskListener<S, E, C> taskListener : taskListeners)
+        for (StateListener<S, E, C> stateListener : stateListeners)
         {
-            if (taskListener.getState() == transition.getStateFrom())
+            if (stateListener.getState() == transition.getStateFrom())
             {
-                taskListener.beforeLeave(transition, context);
+                stateListener.beforeLeave(transition, context);
             }
         }
 
 
-        for (TaskListener<S, E, C> taskListener : taskListeners)
+        for (StateListener<S, E, C> stateListener : stateListeners)
         {
-            if (taskListener.getState() == transition.getStateTo())
+            if (stateListener.getState() == transition.getStateTo())
             {
-                taskListener.beforeEnter(transition, context);
+                stateListener.beforeEnter(transition, context);
             }
         }
 
         context.setCurrentState(transition.getStateTo());
 
-        for (TaskListener<S, E, C> taskListener : taskListeners)
+        for (StateListener<S, E, C> stateListener : stateListeners)
         {
-            if (taskListener.getState() == transition.getStateTo())
+            if (stateListener.getState() == transition.getStateTo())
             {
-                taskListener.afterEnter(transition, context);
+                stateListener.afterEnter(transition, context);
             }
         }
     }
