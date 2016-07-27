@@ -1,4 +1,4 @@
 rootProject.name = 'SimpleFsm'
-include 'library'
+include 'simpleFsm'
 
 

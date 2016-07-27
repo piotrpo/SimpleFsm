@@ -1,5 +1,5 @@
 group 'SimpleFsm'
-version '0.1-SNAPSHOT'
+version '0.1'
 
 buildscript {
     repositories {
@@ -11,7 +11,7 @@ buildscript {
 }
 
 apply plugin: 'java-library-distribution'
-//apply plugin: 'bintray-release'
+apply plugin: 'bintray-release'
 sourceCompatibility = 1.7
 
 repositories {
@@ -22,11 +22,11 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
-//publish {
-//    userOrg = 'digita'
-//    groupId = 'pl.com.digita.simplefsm'
-//    artifactId = 'simplefsm'
-//    publishVersion = '0.0.1'
-//    desc = ''
-//    website = ''
-//}
+publish {
+    userOrg = 'piotrpo'
+    groupId = 'pl.com.digita.simplefsm'
+    artifactId = 'simpleFsm'
+    publishVersion = '0.1'
+    desc = 'FSM implementation in Java'
+    website = 'https://github.com/piotrpo/SimpleFsm'
+}

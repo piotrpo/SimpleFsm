@@ -3,7 +3,24 @@ This is library supporting implementation of FSMs in Java application
 All you have to do is to create enums for States and Events and define transitions.
 For examples check [unit tests](https://github.com/piotrpo/SimpleFsm/tree/master/library/src/test/java/pl/com/digita/simplefsm).
 
-Simple usage
+Basic usage
+
+add to project (gradle) add additional maven repository
+```
+repositories {
+    jcenter()
+
+    maven{
+        url 'https://dl.bintray.com/piotrpo/maven'
+    }
+}
+```
+
+include library as usual:
+```
+compile 'pl.com.digita.simplefsm:simpleFsm:0.1'
+```
+
 Define enums containing states and events. There is no special requirements for those objects - you can use here 
 virtually any `enum`.
 
@@ -30,7 +47,7 @@ StateMachine<States, Events, DefaultContext<States>> fsm;
 about setting generic type - it **must match** first generic parameter of StateMachine. Here you set initial state.
 you can use single StateMachine to process different context.
 
-```
+```java
 DefaultContext<States> context = new DefaultContext<>();
 context.setCurrentState(States.OFF);
 fsm.setContext(context);

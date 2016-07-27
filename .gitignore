@@ -1,3 +1,4 @@
 .gradle
 .idea
-library/build
+simpleFsm/build
+local.properties
