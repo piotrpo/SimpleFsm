@@ -5,18 +5,7 @@ For examples check [unit tests](https://github.com/piotrpo/SimpleFsm/tree/master
 
 Basic usage
 
-add to project (gradle) add additional maven repository
-```
-repositories {
-    jcenter()
-
-    maven{
-        url 'https://dl.bintray.com/piotrpo/maven'
-    }
-}
-```
-
-include library as usual:
+Include library as usual (binaries are available at jcenter repository):
 ```
 compile 'pl.com.digita.simplefsm:simpleFsm:0.1'
 ```
